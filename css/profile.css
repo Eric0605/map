@@ -1,0 +1,92 @@
+@import url(http://weloveiconfonts.com/api/?family=zocial);
+    [class*="zocial-"]:before {
+    font-family: 'zocial', sans-serif;
+}
+.name{
+  float: right;
+}
+#logo{
+  width: 155px;
+  height: 155px;
+}
+#job{
+  float: right;
+}
+#main-image{
+  width: 100%;
+  height: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+em{
+  display: block;
+  text-align: center;
+}
+li{
+  display: inline;
+  margin: 0 20px;
+}
+.sub-div{
+  width: 92%;
+  height: 25%;
+  text-align: center;
+  margin: 0 4%;
+  float: left;
+}
+.sub-image{
+  width: 100%;
+  height: 50%;
+}
+footer{
+text-align: center;
+}
+p{
+  font-size: 16px;
+}
+h2{
+  display: block;
+  text-align: center;
+}
+@media screen and (min-width:750px) {
+  #main-image{
+    width: 90%;
+    height: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .sub-div{
+    width: 46%;
+    height: 5;
+    text-align: center;
+    margin: 0 2%;
+  }
+  .sub-image{
+    width: 100%;
+    height: 50%;
+  }
+}
+
+@media screen and (min-width:1500px) {
+  #main-image{
+    width: 80%;
+    height: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .sub-div{
+    width: 23%;
+    height: 500px;
+    text-align: center;
+    margin: 0 1%;
+  }
+  .sub-image{
+    width: 100%;
+    height: 50%;
+  }
+  .big-div{
+    width: 100%;
+  }
+}
