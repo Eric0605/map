@@ -1,14 +1,19 @@
 function AppViewModel() {
     var self = this;
     this.check = ko.observable("");
-    yesorno = ko.observable(true);
-    for (var i = 0; i < locations.length; i++) {
-      var locationname = locations[i].title;
-      self.location.push({ name: locationname});
-    };
     this.location = ko.observableArray([]);
+    for (var i = 0; i < locations.length; i++) {
+        var locationname = locations[i].title;
+        self.location().push({ name: locationname});
+      };
     self.filterList = ko.computed(function () {
-      console.log(self.location(),self.check());
+      for (var i = 0; i < locations.length; i++) {
+        var newname = locations[i].title + " " + locations[i].title.toLowerCase();
+        var searching = newname.search(self.check());
+        if (searching === -1) {
+          self.location().remove(this);
+        }
+      }
     // calculate the filtered list and return it here
     return null;
   });
