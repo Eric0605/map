@@ -1,25 +1,17 @@
 function AppViewModel() {
     var self = this;
-    check = ko.observable("");
-    this.location = ko.observableArray([]);
+    this.check = ko.observable("");
     yesorno = ko.observable(true);
-    if (check() === "") {
-      for (var i = 0; i < locations.length; i++) {
-        var locationname = locations[i].title;
-        self.location.push({ name: locationname});
-      };
-    }
-    else if (check() !== ""){
-      for (var i = 0; i < locations.length; i++) {
-        var locationname = locations[i].title;
-        if (locationname.serach(check()) !== -1) {
-          self.location.push({ name: locationname});
-        }
-      }
-    }
-    else {
-      yesorno(false);
-    }
+    for (var i = 0; i < locations.length; i++) {
+      var locationname = locations[i].title;
+      self.location.push({ name: locationname});
+    };
+    this.location = ko.observableArray([]);
+    self.filterList = ko.computed(function () {
+      console.log(self.location(),self.check());
+    // calculate the filtered list and return it here
+    return null;
+  });
     showListings = function (){
         var bounds = new google.maps.LatLngBounds();
         for (var i = 0; i < markers.length; i++) {
@@ -28,12 +20,12 @@ function AppViewModel() {
         }
         map.fitBounds(bounds);
     };
-
     hideMarkers = function() {
         for (var i = 0; i < markers.length; i++) {
             markers[i].setMap(null);
         }
     };
+
     showinfo = function() {
       var content = this.name;
       for (var i = 0; i < markers.length; i++) {
