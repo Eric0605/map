@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>map</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <script src='http://knockoutjs.com/downloads/knockout-3.4.2.js'></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="options-box">
+            <div class="heading">
+                <h1>Sacramento,CA</h1>
+                <input id="hide-listings" type="button" value="Hide Listings" class="button" data-bind="click: hideMarkers">
+                <input id="show-listingsbutton" type="button" value="Show Listings" class="button" data-bind="click: showListings">
+            </div>
+            <div class="listoflocation">
+                <hr>
+                <div id="searchbox">
+                    <input data-bind="value: check, valueUpdate: 'afterkeydown'" />
+                </div>
+                <hr>
+                <ul id="clicklist" data-bind="foreach: location">
+                    <div data-bind="text: dataplace, click: showinfo" class="placeinlist"> </div>
+                    <hr>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="map"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+    <script src="list.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyD5nnzAm5GtPLZ292pE1SBSsfAJ5ZZeizQ&v=3&callback=initMap" onerror="myErrorHandlingFunction()"></script>
+</body>
+
+</html>
